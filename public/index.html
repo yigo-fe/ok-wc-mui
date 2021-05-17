@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./antd.min.css">
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="./common.css">
+  <!-- <link rel="stylesheet" href="./tippy.css"> -->
+  <title>ok-wc-mui</title>
+  <style>
+    #app {
+      /* height: 2000px; */
+      /* width: 2000px; */
+      /* background-color: rgb(37, 216, 171); */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    main {
+      margin-top: 100px;
+      /* width: 600px; */
+      /* height: 600px; */
+    }
+    .divider {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<!-- 引入组件库 -->
+<script src="./ok-wc-mui.umd.js"></script>
+  <div id="app">
+    <main>
+
+      <div class="divider">
+        <!-- <button onclick="testClick()">test</button> -->
+        <!-- <button onclick="testClick2()">test2</button> -->
+        <!-- <button onclick="testClick3()">drawer</button> -->
+      </div>
+    
+
+      <!-- 人员图像 -->
+      <h3>人员图像</h3>
+      <mok-avatar class="mok-avatar"></mok-avatar>
+      <div class="divider"></div>
+
+      <!-- 人员卡片 -->
+      <!-- <mok-person-cell class="person-cell"></mok-person-cell> -->
+
+      <div class="divider"></div>
+      <!-- 多人员list -->
+      <!-- <ok-person-group ></ok-person-group> -->
+
+
+
+
+    </main>
+  </div>
+  <script>
+    // success
+	// cv3vj7pldi1gxo65
+
+  // 'app_id': 'app_imvtxorkbj',
+  //     'form_key': 'form_0wdfaktbsv',
+  //     'element_id': 'c8k95352g4qmvurx'
+
+
+    const personInfo = {
+      avatar_url: "https://wework.qpic.cn/bizmail/cMLFZrYGchIibX5icVTGibh7b2oELMc9MsJYDiaCNNmTYREjGVRjlsq3mA/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "fujing@byteluck.com",
+      employee_card: "工号",
+      employee_en_name: "付静",
+      employee_id: "FuJing",
+      employee_name: "付静",
+      gender: 2,
+      msg_relation_type: "WX",
+      tenant_id: "test"
+    }
+    const personInfo1 = {
+  "msg_relation_type": "WX",
+  "id": "SuJieFeng",
+  "name_en": "苏杰锋",
+  "name_zh": "苏杰锋",
+  "name_ja": "苏杰锋",
+  "name": {
+    "en": "苏杰锋",
+    "zh": "苏杰锋",
+    "ja": "苏杰锋"
+  },
+  "email": "sujiefeng@byteluck.com",
+  "org_name": "测试部",
+  "external": "https://wework.qpic.cn/bizmail/5MicbcvDmINtCeG1TpOc2BMRsl4iaaHcxibWVAeVRRaQIbgsZjvZj1icNQ/0",
+  "org_name_en": "测试部",
+  "org_name_zh": "测试部",
+  "org_name_ja": "测试部",
+  "org_name_mult_lang": {
+    "en": "测试部",
+    "zh": "测试部",
+    "ja": "测试部"
+  },
+  "avatar": "https://wework.qpic.cn/bizmail/5MicbcvDmINtCeG1TpOc2BMRsl4iaaHcxibWVAeVRRaQIbgsZjvZj1icNQ/0",
+  "terminated": false
+}
+
+
+    const personList =[{
+      avatar_url: "https://wework.qpic.cn/bizmail/cMLFZrYGchIibX5icVTGibh7b2oELMc9MsJYDiaCNNmTYREjGVRjlsq3mA/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "fujing@byteluck.com",
+      employee_card: "工号",
+      employee_en_name: "付静",
+      employee_id: "FuJing",
+      employee_name: "付静",
+      gender: 2,
+      msg_relation_type: "WX",
+      tenant_id: "test"
+    }, {
+      avatar_url: "https://wework.qpic.cn/bizmail/cMLFZrYGchIibX5icVTGibh7b2oELMc9MsJYDiaCNNmTYREjGVRjlsq3mA/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "fujing@byteluck.com",
+      employee_card: "工号",
+      employee_en_name: "付静",
+      employee_id: "FuJing1",
+      employee_name: "付静",
+      gender: 2,
+      msg_relation_type: "WX",
+      tenant_id: "test"
+    },
+    {
+      employee_id: "100005",
+      employee_name: "Angel",
+      gender: 2,
+      msg_relation_type: "WX",
+      department_id: "30",
+      department_name: "前端部",
+      email: "Angel@byteluck.com",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/bizmail/sM006UpbJWqyf5UJrcZ8FibaLTBEPpmn6U2bKFXMOTal6vXDR8cypCQ/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "chengxudong@byteluck.com",
+      employee_card: null,
+      employee_en_name: "程旭东",
+      employee_id: "ChengXuDong",
+      employee_name: "程旭东",
+      external_user: false,
+      gender: 1,
+      msg_relation_type: "WX",
+    },
+
+    {
+      avatar_url: "https://wework.qpic.cn/bizmail/yXFNU2p00jClcCuRWQHTU4jbf1IIh2jkRpLNGD2z5Ieoq8hqRGBHiaA/0",
+      department_id: "19",
+      department_name: "快手项目组",
+      email: "dongguangyao@byteluck.com",
+      employee_en_name: "董光耀",
+      employee_id: "DongGuangYao",
+      employee_name: "董光耀",
+      external_user: false,
+      gender: 1,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs9XwNIFXaMfiaiaJicA9EV2rGEIeYStCROfUyCgF833ZGgT0fvuibiaScia1U/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "gaojiaxing@byteluck.com",
+      employee_en_name: "高佳兴",
+      employee_id: "GaoJiaXing",
+      employee_name: "高佳兴",
+      external_user: false,
+      gender: 2,
+      msg_relation_type: "WX",
+    },
+
+  ] 
+
+    const personList2 = [
+    {
+      avatar_url: "https://wework.qpic.cn/bizmail/cMLFZrYGchIibX5icVTGibh7b2oELMc9MsJYDiaCNNmTYREjGVRjlsq3mA/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "fujing@byteluck.com",
+      employee_card: "工号",
+      employee_en_name: "付静",
+      employee_id: "FuJing",
+      employee_name: "付静",
+      gender: 2,
+      msg_relation_type: "WX",
+      tenant_id: "test"
+    },
+    {
+      avatar_url: "https://wework.qpic.cn/bizmail/sM006UpbJWqyf5UJrcZ8FibaLTBEPpmn6U2bKFXMOTal6vXDR8cypCQ/0",
+      department_id: "30",
+      department_name: "前端部",
+      email: "chengxudong@byteluck.com",
+      employee_card: null,
+      employee_en_name: "程旭东",
+      employee_id: "ChengXuDong",
+      employee_name: "程旭东",
+      external_user: false,
+      gender: 1,
+      msg_relation_type: "WX",
+    },
+    ]
+
+
+    window.onload = ()=>{
+
+      const okAvatar = document.querySelector('mok-avatar')
+      okAvatar.personInfo = personInfo
+
+      // const okPersonCell = document.querySelector('ok-person-cell')
+      // okPersonCell.personInfo = personInfo1
+      // okPersonCell.width = '30px'
+      // okPersonCell.height = '30px'
+
+
+      // const okPersonGroup = document.querySelector('ok-person-group')
+      // okPersonGroup.personList = personList
+      // okPersonGroup.personList = personList2
+      // okPersonGroup.showAll = true
+      // okPersonGroup.width = '34px'
+      // okPersonGroup.height = '34px'
+      // okPersonGroup.contentStyle = {
+      //   color: 'red'
+      // }
+      // okPersonGroup.itemStyle = {
+      //   color: 'blue'
+      // }
+
+    }
+
+    function testClick (){
+     
+    }
+
+    function testClick2 (){
+    }
+
+
+    function testClick3 (){
+
+    }
+
+
+
+  </script>
+</body>
+</html>

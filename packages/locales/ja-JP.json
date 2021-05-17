@@ -1,0 +1,15 @@
+{
+  "control": {
+    "personCard": {
+      "terminated": "使用停止",
+      "department": "部署",
+      "email": "メール",
+      "sendLark":"{title}メッセージを送る",
+      "wechat": "WeChat Work",
+      "ME": "ME",
+      "lark": "Lark",
+      "dingtalk": "DingTalk"
+    }
+  }
+
+}

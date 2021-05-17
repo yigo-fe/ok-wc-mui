@@ -1,0 +1,85 @@
+
+/* reset */
+
+@charset "UTF-8";
+body {
+  font-family: 'PingFang SC', -apple-system,  'Microsoft YaHei', '微软雅黑', sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue',  'Hiragino Sans GB', 'Heiti SC';
+  font-weight: 400;
+  font-size: 14px;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3 {
+  font-family: Medium, semibold;
+}
+a {
+  color: #4c78fc;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  color: #63a3ff;
+}
+a:active {
+  color: #367ee6;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #666;
+  font-weight: inherit;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+  font-family: Medium;
+}
+h5,
+h6,
+p {
+  font-size: inherit;
+}
+p {
+  line-height: 1.8;
+}
+sub,
+sup {
+  font-size: 13px;
+}
+small {
+  font-size: 12px;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
