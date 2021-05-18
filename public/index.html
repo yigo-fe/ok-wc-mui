@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./common.css">
+  <!-- <link rel="stylesheet" href="./common.mobile.css"> -->
   <title>ok-wc-mui</title>
   <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
     #app {
       /* height: 2000px; */
       /* width: 2000px; */
@@ -43,12 +47,15 @@
       <mok-avatar class="mok-avatar"></mok-avatar>
       <div class="divider"></div>
 
+      <h3>人员卡片</h3>
+      <!-- <mok-person-card class="mok-person-card"></mok-person-card> -->
+
       <!-- 人员卡片 -->
-      <!-- <mok-person-cell class="person-cell"></mok-person-cell> -->
+      <mok-person-cell class="mok-person-cell"></mok-person-cell>
 
       <div class="divider"></div>
-      <!-- 多人员list -->
-      <!-- <ok-person-group ></ok-person-group> -->
+      <h3>多人员list</h3>
+      <mok-person-group ></mok-person-group>
 
 
 
@@ -58,15 +65,15 @@
   <script>
 
     const personInfo = {
-      avatar_url: "https://wework.qpic.cn/bizmail/cMLFZrYGchIibX5icVTGibh7b2oELMc9MsJYDiaCNNmTYREjGVRjlsq3mA/0",
-      department_id: "30",
-      department_name: "前端部",
-      email: "fujing@byteluck.com",
+      avatar_url: "https://wework.qpic.cn/wwhead/duc2TvpEgSTPk74IwG7Bs8YnaCcPZwjunl2uDw6RzBRdqhMicRuXSh8PM0ZONCCUADnROrrhH0kg/0",
+      department_id: "17",
+      department_name: "马飞祥",
+      email: "mafeixiang@byteluck.com",
       employee_card: "工号",
-      employee_en_name: "付静",
-      employee_id: "FuJing",
-      employee_name: "付静",
-      gender: 2,
+      employee_en_name: "马飞祥",
+      employee_id: "MaFeiXiang",
+      employee_name: "马飞祥",
+      gender: 1,
       msg_relation_type: "WX",
       tenant_id: "test"
     }
@@ -267,24 +274,27 @@
       const okAvatar = document.querySelector('mok-avatar')
       okAvatar.personInfo = personInfo
 
-      // const okPersonCell = document.querySelector('ok-person-cell')
-      // okPersonCell.personInfo = personInfo1
+      // const okPersonCard = document.querySelector('mok-person-card')
+      // okPersonCard.personInfo = personInfo
+
+      const okPersonCell = document.querySelector('mok-person-cell')
+      okPersonCell.personInfo = personInfo1
       // okPersonCell.width = '30px'
       // okPersonCell.height = '30px'
 
 
-      // const okPersonGroup = document.querySelector('ok-person-group')
-      // okPersonGroup.personList = personList
+      const okPersonGroup = document.querySelector('mok-person-group')
+      okPersonGroup.personList = personList
       // okPersonGroup.personList = personList2
       // okPersonGroup.showAll = true
-      // okPersonGroup.width = '34px'
-      // okPersonGroup.height = '34px'
+      okPersonGroup.width = '34px'
+      okPersonGroup.height = '34px'
       // okPersonGroup.contentStyle = {
       //   color: 'red'
       // }
-      // okPersonGroup.itemStyle = {
-      //   color: 'blue'
-      // }
+      okPersonGroup.showMore = (list)=>{
+        console.log('showMore', list)
+      }
 
     }
 

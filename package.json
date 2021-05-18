@@ -10,6 +10,7 @@
     "serve": "webpack serve --mode development --env development --config webpack.dev.js",
     "build": "cross-env NODE_ENV=production rollup -c",
     "prepublish": "npm run build",
+    "postpublish": "node ./cdn-upload.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
@@ -33,6 +34,7 @@
     "lit-html": "^1.3.0",
     "ok-i18n": "^1.0.1",
     "ok-lit": "^1.3.0",
+    "prettier": "^2.3.0",
     "process": "^0.11.10",
     "qs": "^6.9.6"
   },
@@ -73,7 +75,6 @@
     "lint-staged": "^10.5.3",
     "postcss": "^8.2.6",
     "postcss-loader": "^5.0.0",
-    "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.35.1",
     "rollup-plugin-alias": "^2.2.0",
@@ -88,6 +89,7 @@
     "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
+    "shelljs": "^0.8.4",
     "style-loader": "^2.0.0",
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",

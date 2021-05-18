@@ -43,7 +43,7 @@ defineComponent(
     })
 
     return () => html`
-      <link rel="stylesheet" .href="${COMMON_CSS_PATH}" />
+      <!-- <link rel="stylesheet" .href="${COMMON_CSS_PATH}" /> -->
       <div ref="showUser" class="ok-avatar ok-avatar-root"></div>
     `
   }

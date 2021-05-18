@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-05-17 10:25:56
  * @LastEditors: 付静
- * @LastEditTime: 2021-05-17 10:26:27
+ * @LastEditTime: 2021-05-18 21:05:18
  * @FilePath: /rollup.config.js
  */
 import cjs from '@rollup/plugin-commonjs'
@@ -65,10 +65,7 @@ const createConfig = format => {
     }),
     // copy 静态资源
     copy({
-      targets: [
-        { src: 'public/common.css', dest: 'dist' },
-        { src: 'public/antd.min.css', dest: 'dist' },
-      ],
+      targets: [{ src: 'public/common.mobile.css', dest: 'dist' }],
     }),
   ]
 
