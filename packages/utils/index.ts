@@ -4,8 +4,6 @@
  * definition: 清晰度，默认不开起
  */
 
-export * from './poper'
-
 const isSameArray = (arr1: any, arr2: any) => {
   const l1 = arr1?.length || 0
   const l2 = arr2?.length || 0
