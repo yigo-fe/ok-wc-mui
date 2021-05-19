@@ -1,7 +1,6 @@
 // import { setPopover } from '@c/utils'
 import { defineComponent, html, ref } from 'ok-lit'
 
-import { COMMON_CSS_PATH } from '../path.config'
 import { apiInitPersoncard } from '../services/api'
 // import { personInfo } from '../mock'
 /**
@@ -66,6 +65,7 @@ defineComponent(
     }
 
     const clickClose = (e: any) => {
+      window.event ? (window.event.cancelBubble = true) : e.stopPropagation()
       var event = e || window.event
       var target = event.target || event.srcElement
 
@@ -82,14 +82,19 @@ defineComponent(
     }
 
     return () => html`
-      <!-- <link rel="stylesheet" .href="${COMMON_CSS_PATH}" /> -->
-      <span
-        ref="ok-person-trigger"
-        class="ok-person-cell ok-person-cell-root"
-        @click=${showCard}
-      >
+      <style>
+        .mok-person-cell,
+        .mok-person-cell mok-avatar {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 0;
+          line-height: 1;
+        }
+      </style>
+      <span ref="ok-person-trigger" class="mok-person-cell" @click=${showCard}>
         <slot>
           <mok-avatar
+            class="user-avatar"
             .personInfo=${props.personInfo}
             .size=${props.size}
             .width=${props.width}
@@ -98,7 +103,7 @@ defineComponent(
         </slot>
       </span>
       <div
-        style="display: none;position: fixed; top: 0;left:0; bottom:0; right: 0;z-index:5000; align-items: center; justify-content: center;background: rgba(0, 0, 0, 0.3) "
+        style="display: none; position: fixed; top: 0;left:0; bottom:0; right: 0;z-index:5000; align-items: center; justify-content: center;background: rgba(0, 0, 0, 0.3) "
         class="mok-person-card-wrap"
         ref="person-card-wrap"
         @click=${clickClose}
