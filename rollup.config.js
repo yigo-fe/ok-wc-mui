@@ -53,7 +53,9 @@ const createConfig = format => {
       minimize: true,
       plugins: [autoprefixer],
     }),
-    cjs(),
+    cjs({
+      browser: true,
+    }),
     ts(),
     image(),
     babelPlugin,
