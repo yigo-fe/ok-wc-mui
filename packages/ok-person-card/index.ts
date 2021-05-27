@@ -89,7 +89,7 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
             <div class="content-wraper">
               <div v-if="!personInfoCom.terminated && showTeam" class="item-row">
                   <span class="item-label">{{langPack.team}}：</span>
-                  <p class="item-content" v-if="!deptText?.length"> -- </p>
+                  <p class="item-content" v-if="!deptText.length"> -- </p>
                   <ul v-else>
                     <li class="dept-item" v-for="dept in deptText"> {{dept}}</li>              
                   </ul>

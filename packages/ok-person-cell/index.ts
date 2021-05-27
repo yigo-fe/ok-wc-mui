@@ -1,28 +1,28 @@
-// import { setPopover } from '@c/utils'
-import { defineComponent, html, ref } from 'ok-lit'
+import './card-box'
+
+import { computed, defineComponent, html, ref } from 'ok-lit'
 
 import { apiInitPersoncard } from '../services/api'
-// import { personInfo } from '../mock'
-/**
- * person: {Person} 用户信息
- * TODO:
- * 头像形状：circle ｜ square
- * 文字头像：背景色自定义
- */
 import props from './props'
+
 defineComponent(
   'mok-person-cell',
   {
     ...props,
   },
-  (props, contxt) => {
+  props => {
     const api = apiInitPersoncard()
     const toOpenId: any = ref('')
     const isAwaken = ref(false)
     const deptList: any = ref([])
     const statusType: any = ref('')
+    const personInfo = computed(() => props.personInfo)
+    const visible = ref(false)
+    const isSelf = ref(false)
+    const isFirstRender = ref(false)
 
-    const checkLardShow = async (id: string) => {
+    // 获取lark 及部门信息
+    const getLarkInfo = async (id: string) => {
       let result: any = null
       if (props.propsGetInfoByEmpId) {
         result = await props.propsGetInfoByEmpId(id)
@@ -31,6 +31,9 @@ defineComponent(
       }
 
       if (result.code === '000000') {
+        // 记录打开的是否为自己的卡片。判断依据：没有to_open_id字段则为自己
+        isSelf.value = Object.keys(result.data).indexOf('to_open_id') === -1
+
         const fromOpenId = result.data.from_open_id
         toOpenId.value = result.data.to_open_id
         isAwaken.value = Boolean(fromOpenId && toOpenId.value)
@@ -38,47 +41,34 @@ defineComponent(
         statusType.value = result.data.status_type
       }
       // 打开卡片。在此处打开卡片，避免卡片闪烁的情况
-      initCard()
+      showCard()
     }
 
-    const showCard = () => {
-      // 判断是否已经获取的toOpenId
-      if (!toOpenId.value) {
-        const personInfo: any = props.personInfo
-        const id =
-          personInfo.employee_id ||
-          personInfo.user_id ||
-          personInfo.id ||
-          personInfo.employee_number
-
-        id && checkLardShow(id)
-      } else {
-        initCard()
-      }
-    }
-
-    const initCard = () => {
-      const el = contxt.$refs['person-card-wrap'] as HTMLElement
-      if (el && el.style) {
-        el.style.display = 'flex'
-      }
-    }
-
-    const clickClose = (e: any) => {
+    const initCard = (e: any) => {
       window.event ? (window.event.cancelBubble = true) : e.stopPropagation()
-      var event = e || window.event
-      var target = event.target || event.srcElement
+      // 判断是否已经获取的toOpenId, 并且不是自己
+      if (!toOpenId.value && !isSelf.value) {
+        const data: any = personInfo.value
+        const id =
+          data.employee_id || data.user_id || data.id || data.employee_number
 
-      if (target?.tagName === 'MOK-PERSON-CARD') return
-      // 关闭卡片
-      handleCardClose()
+        id && getLarkInfo(id)
+      } else {
+        showCard()
+      }
     }
 
+    // 展示card
+    const showCard = () => {
+      console.log('show')
+      visible.value = true
+      isFirstRender.value = true
+      document.body.style.overflow = 'hidden'
+    }
+    // 关闭card
     const handleCardClose = () => {
-      const el = contxt.$refs['person-card-wrap'] as HTMLElement
-      if (el && el.style) {
-        el.style.display = 'none'
-      }
+      visible.value = false
+      document.body.style.overflow = ''
     }
 
     return () => html`
@@ -91,7 +81,7 @@ defineComponent(
           line-height: 1;
         }
       </style>
-      <span ref="ok-person-trigger" class="mok-person-cell" @click=${showCard}>
+      <span ref="ok-person-trigger" class="mok-person-cell" @click=${initCard}>
         <slot>
           <mok-avatar
             class="user-avatar"
@@ -102,24 +92,19 @@ defineComponent(
           ></mok-avatar>
         </slot>
       </span>
-      <div
-        style="display: none; position: fixed; top: 0;left:0; bottom:0; right: 0;z-index:5000; align-items: center; justify-content: center;background: rgba(0, 0, 0, 0.3) "
-        class="mok-person-card-wrap"
-        ref="person-card-wrap"
-        @click=${clickClose}
-      >
-        <div class="mok-person-card-box">
-          <mok-person-card
-            ref="person-card"
-            .personInfo=${props.personInfo}
-            .toOpenId=${toOpenId.value}
-            .isAwaken=${isAwaken.value}
-            .deptList=${deptList.value}
-            .statusType=${statusType.value}
-            @close=${handleCardClose}
-          ></mok-person-card>
-        </div>
-      </div>
+      ${isFirstRender.value
+        ? html`
+            <mok-card-box
+              .visible=${visible.value}
+              .personInfo=${personInfo.value}
+              .toOpenId=${toOpenId.value}
+              .isAwaken=${isAwaken.value}
+              .deptList=${deptList.value}
+              .statusType=${statusType.value}
+              @close=${handleCardClose}
+            ></mok-card-box>
+          `
+        : ''}
     `
   }
 )

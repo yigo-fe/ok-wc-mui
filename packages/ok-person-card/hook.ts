@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-03-03 17:28:13
  * @LastEditors: 付静
- * @LastEditTime: 2021-05-17 20:37:13
+ * @LastEditTime: 2021-05-27 14:53:59
  * @FilePath: /packages/ok-person-card/hook.ts
  */
 import { computed, effect } from 'ok-lit'
@@ -30,7 +30,7 @@ export default function (props) {
     } else {
       return props.personInfo.department_name
         ? [props.personInfo.department_name]
-        : ''
+        : []
     }
   })
 

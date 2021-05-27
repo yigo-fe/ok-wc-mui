@@ -27,13 +27,30 @@
     .divider {
       margin-bottom: 20px;
     }
+    .header {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      z-index: 100;
+      background-color: rgb(240, 207, 240);
+
+    }
   </style>
+      <script src="https://fe-resource.baiteda.com/libs/webcomponentsjs-2.5.0/webcomponents-bundle.js"></script>
+
 </head>
 <body>
 <!-- 引入组件库 -->
 <!-- <script src="./ok-wc-mui.umd.js"></script> -->
   <div id="app">
     <main>
+
+      <div class="header">
+        <mok-person-cell class="mok-person-cell"></mok-person-cell>
+
+      </div>
 
       <div class="divider">
         <!-- <button onclick="testClick()">test</button> -->
@@ -51,8 +68,7 @@
       <!-- <mok-person-card class="mok-person-card"></mok-person-card> -->
 
       <!-- 人员卡片 -->
-      <mok-person-cell class="mok-person-cell"></mok-person-cell>
-
+      
       <div class="divider"></div>
       <h3>多人员list</h3>
       <mok-person-group ></mok-person-group>
@@ -313,5 +329,9 @@
 
 
   </script>
+     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+   <script>
+eruda.init()
+</script>
 </body>
 </html>
