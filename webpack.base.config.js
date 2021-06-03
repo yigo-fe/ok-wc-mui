@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-05-17 10:26:52
  * @LastEditors: 付静
- * @LastEditTime: 2021-05-17 10:26:52
+ * @LastEditTime: 2021-06-03 21:14:19
  * @FilePath: /webpack.base.config.js
  */
 const path = require('path')
@@ -37,16 +37,16 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread'],
-            cacheDirectory: true,
-          },
         },
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+          },
+        ],
         exclude: /node_modules/,
       },
     ],

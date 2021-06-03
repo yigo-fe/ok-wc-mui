@@ -1,6 +1,6 @@
 import './card-box'
 
-import { computed, defineComponent, html, ref } from 'ok-lit'
+import { computed, defineComponent, html, onUnmounted, ref } from 'ok-lit'
 
 import { apiInitPersoncard } from '../services/api'
 import props from './props'
@@ -60,7 +60,6 @@ defineComponent(
 
     // 展示card
     const showCard = () => {
-      console.log('show')
       visible.value = true
       isFirstRender.value = true
       document.body.style.overflow = 'hidden'
@@ -70,6 +69,11 @@ defineComponent(
       visible.value = false
       document.body.style.overflow = ''
     }
+
+    onUnmounted(() => {
+      console.log('onUnmounted')
+      handleCardClose()
+    })
 
     return () => html`
       <style>
