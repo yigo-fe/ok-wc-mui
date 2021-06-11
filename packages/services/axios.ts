@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-03-15 16:53:55
  * @LastEditors: 付静
- * @LastEditTime: 2021-03-15 17:38:12
+ * @LastEditTime: 2021-06-09 16:18:24
  * @FilePath: /packages/services/axios.ts
  */
 import axios, { Method } from 'axios'
@@ -47,7 +47,8 @@ function getInstance(serverPath: string) {
     (res: any) => {
       // 判断是否有权限
       if (res.data && res.data.code === '502106') {
-        window.location.replace('https://www.byteluck.com')
+        // window.location.replace('https://www.byteluck.com')
+        console.warn('没有权限')
       }
       if (res.data instanceof Blob) {
         return res
@@ -59,8 +60,9 @@ function getInstance(serverPath: string) {
     },
     (error: any) => {
       if (error.response && `${error.response.status}` === '401') {
-        const url = 'https://www.byteluck.com'
-        window.location.replace(url)
+        // const url = 'https://www.byteluck.com'
+        // window.location.replace(url)
+        console.warn('没有权限')
       } else {
         return Promise.reject(error)
       }

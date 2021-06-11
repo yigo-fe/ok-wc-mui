@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-05-26 20:51:26
  * @LastEditors: 付静
- * @LastEditTime: 2021-05-27 10:33:08
+ * @LastEditTime: 2021-06-08 10:51:32
  * @FilePath: /packages/ok-person-cell/card-box.ts
  */
 import { defineComponent, html, onMounted } from 'ok-lit'
@@ -93,6 +93,7 @@ defineComponent(
                 :isAwaken="isAwaken"
                 :deptList="deptList"
                 :statusType="statusType"
+                :visible="visible"
                 @close="handleCardClose"
               ></mok-person-card>
             </div>

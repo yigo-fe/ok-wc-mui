@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-02-18 16:01:20
  * @LastEditors: 付静
- * @LastEditTime: 2021-05-19 14:57:55
+ * @LastEditTime: 2021-06-03 23:04:55
  * @FilePath: /packages/ok-avatar/index.ts
  */
 
@@ -45,6 +45,7 @@ defineComponent(
       <style>
         .mok-avatar {
           font-size: 0;
+          height: 100%;
         }
       </style>
       <div ref="showUser" class="mok-avatar"></div>

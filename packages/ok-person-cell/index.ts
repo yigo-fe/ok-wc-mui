@@ -71,7 +71,6 @@ defineComponent(
     }
 
     onUnmounted(() => {
-      console.log('onUnmounted')
       handleCardClose()
     })
 
@@ -83,6 +82,7 @@ defineComponent(
           vertical-align: middle;
           font-size: 0;
           line-height: 1;
+          -webkit-tap-highlight-color: transparent;
         }
       </style>
       <span ref="ok-person-trigger" class="mok-person-cell" @click=${initCard}>

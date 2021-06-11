@@ -37,6 +37,7 @@
       background-color: rgb(240, 207, 240);
 
     }
+  
   </style>
       <script src="https://fe-resource.baiteda.com/libs/webcomponentsjs-2.5.0/webcomponents-bundle.js"></script>
 
@@ -50,26 +51,34 @@
 
 
       <div class="divider">
-        <!-- <button onclick="testClick()">test</button> -->
-        <!-- <button onclick="testClick2()">test2</button> -->
+        <button onclick="testClick()">test</button>
+        <button onclick="testClick2()">test2</button>
         <!-- <button onclick="testClick3()">drawer</button> -->
       </div>
+
+      <!-- <div id="boxWrap" style="height: 470px; width: 125px; overflow: auto; position: relative;" onscroll="handleScroll(event)" >
+        <div id="box1" style="background:rgb(240, 207, 240); height: 210px; width: 125px; min-height: 151px; ">
+          box1开始
+        </div>
+        <div id="box2" style="background:rgb(210, 240, 207);min-height: 260px;">
+          <div id="inner" style="height: 100%; border: 1px solid #ccc;">inner开始</div>
+        </div>
+      </div> -->
     
 
       <!-- 人员图像 -->
-      <h3>人员图像</h3>
+      <h3>Avatar</h3>
       <mok-avatar class="mok-avatar"></mok-avatar>
       <div class="divider"></div>
 
-      <h3>人员卡片</h3>
+      <h3>Person Card</h3>
       <!-- <mok-person-card class="mok-person-card"></mok-person-card> -->
 
       <mok-person-cell class="mok-person-cell"></mok-person-cell>
 
-      <!-- 人员卡片 -->
       
       <div class="divider"></div>
-      <h3>多人员list</h3>
+      <h3>Person Group</h3>
       <mok-person-group ></mok-person-group>
 
 
@@ -314,10 +323,16 @@
     }
 
     function testClick (){
+      // const box2 = document.getElementById('box2')
+      // box2.style.height='600px';
+      const inner = document.getElementById('inner')
+      inner.style.height='800px';
      
     }
 
     function testClick2 (){
+      const box2 = document.getElementById('box2')
+      box2.style.height='150px';
     }
 
 
@@ -325,12 +340,39 @@
 
     }
 
+    function handleScroll(e){
+      
+      const boxWrap = document.getElementById('boxWrap')
+      const box1 = document.getElementById('box1')
+        const box2 = document.getElementById('box2')
+      if(boxWrap.scrollTop > 59) {
+
+        
+        box1.style.position = "fixed"
+        box1.style.top = "143px"
+        box1.style.top = "143px"
+        box1.style.height = "151px"
+        
+        box2.style['margin-top'] = '151px'
+      }else {
+        box1.style.position = "static"
+        box1.style.top = 'auto'
+        box1.style.height = "210px"
+        
+        box2.style['margin-top'] = 0
+      }
+    }
+
 
 
   </script>
+
+     <!-- <script src="https://unpkg.com/better-scroll@latest/dist/better-scroll.js"></script> -->
      <script src="//cdn.jsdelivr.net/npm/eruda"></script>
    <script>
-eruda.init()
-</script>
+    eruda.init()
+  </script>
+
+  
 </body>
 </html>

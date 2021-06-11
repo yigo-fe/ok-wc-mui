@@ -22,21 +22,21 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
           showTeam,
           langPack,
           personInfoCom,
-          deptText,
+
           statusType,
         } = usePersonCardHandle(props)
 
         // mock
-        // const deptText = ref([
-        //   '产品中心/产品部1',
-        //   '北京百特云享科技有限公司/产品中心/产品部2',
-        //   '北京百特云享科技有限公司/产品中心/产品部3',
-        //   '北京百特云享科技有限公司/产品中心/产品部4',
-        //   '北京百特云享科技有限公司/产品中心/产品部5',
-        //   '北京百特云享科技有限公司/产品中心/测试部',
-        //   '北京百特云享科技有限公司/产品中心/测试部/产品中心测试部子部门1',
-        //   '北京百特云享科技有限公司/产品中心/测试部/产品中心测试部子部门2',
-        // ])
+        const deptText = ref([
+          '产品中心/产品部1',
+          '北京百特云享科技有限公司/产品中心/产品部2',
+          '北京百特云享科技有限公司/产品中心/产品部3',
+          '北京百特云享科技有限公司/产品中心/产品部4',
+          '北京百特云享科技有限公司/产品中心/产品部5',
+          '北京百特云享科技有限公司/产品中心/测试部',
+          '北京百特云享科技有限公司/产品中心/测试部/产品中心测试部子部门1',
+          '北京百特云享科技有限公司/产品中心/测试部/产品中心测试部子部门2',
+        ])
 
         const handleCloseCard = () => {
           context.emit('close')
@@ -117,7 +117,7 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
           '-webkit-backdrop-filter': 'blur(0px)',
         })
 
-        const avatarStyle: any = ref({
+        const avatarStyle = ref({
           filter: 'blur(0)',
         })
         // 处理图像毛玻璃渐变效果
@@ -134,7 +134,6 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
             filter: `blur(${blur}px)`,
           }
         }
-
         const handleBoxScroll = () => {
           const scrollBox: any = cardInner.value
           const header: any = cardHeader.value
@@ -160,12 +159,6 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
             header.style['min-height'] = '210px'
             footer.style['margin-top'] = 0
           }
-          // if (scrollTop < 0) {
-          //   const s = 1 + (Math.abs(scrollTop) / 636).toFixed(1)
-          //   avatarStyle.value.transform = `scaleY(${s})`
-          // } else {
-          //   avatarStyle.value.transform = 'initial'
-          // }
         }
 
         // scroll up
@@ -213,11 +206,11 @@ defineComponent('mok-person-card', { ...props }, (props, context) => {
           i18n: ref(props.i18n),
           handleCloseCard,
           handleOpen,
-          handleBoxScroll,
           footerRef,
           deptBox,
           isShowBtn,
           isTwoDepts,
+          handleBoxScroll,
           cardInner,
           cardHeader,
           blurStyle,
