@@ -1,4 +1,4 @@
-import './card-box'
+// import './card-box'
 
 import { computed, defineComponent, html, onUnmounted, ref } from 'ok-lit'
 
@@ -98,7 +98,7 @@ defineComponent(
       </span>
       ${isFirstRender.value
         ? html`
-            <mok-card-box
+            <mok-person-card
               .visible=${visible.value}
               .personInfo=${personInfo.value}
               .toOpenId=${toOpenId.value}
@@ -106,7 +106,7 @@ defineComponent(
               .deptList=${deptList.value}
               .statusType=${statusType.value}
               @close=${handleCardClose}
-            ></mok-card-box>
+            ></mok-person-card>
           `
         : ''}
     `
