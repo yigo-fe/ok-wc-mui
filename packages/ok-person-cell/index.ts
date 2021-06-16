@@ -1,6 +1,13 @@
 import './card-box'
 
-import { computed, defineComponent, html, onUnmounted, ref } from 'ok-lit'
+import {
+  computed,
+  defineComponent,
+  html,
+  onMounted,
+  onUnmounted,
+  ref,
+} from 'ok-lit'
 
 import { apiInitPersoncard } from '../services/api'
 import props from './props'
@@ -10,7 +17,7 @@ defineComponent(
   {
     ...props,
   },
-  props => {
+  (props, context) => {
     const api = apiInitPersoncard()
     const toOpenId: any = ref('')
     const isAwaken = ref(false)
@@ -74,6 +81,10 @@ defineComponent(
       handleCardClose()
     })
 
+    onMounted(() => {
+      context.addEventListener('click', initCard)
+    })
+
     return () => html`
       <style>
         .mok-person-cell,
@@ -85,7 +96,7 @@ defineComponent(
           -webkit-tap-highlight-color: transparent;
         }
       </style>
-      <span ref="ok-person-trigger" class="mok-person-cell" @click=${initCard}>
+      <span ref="ok-person-trigger" class="mok-person-cell">
         <slot>
           <mok-avatar
             class="user-avatar"
