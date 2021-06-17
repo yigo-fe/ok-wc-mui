@@ -27,9 +27,15 @@ defineComponent(
     height: {
       type: String as unknown as PropType<string>,
     },
-    showAll: {
+    showAllCount: {
+      // ...数字 是否展示全部数量
       type: Boolean as unknown as PropType<boolean>,
       default: false,
+    },
+    maxDisplayNum: {
+      // 展示的图像个数
+      type: Number as unknown as PropType<number>,
+      default: 3,
     },
     // 审批组件传入，卡片请求数据方法
     propsGetInfoByEmpId: {
@@ -42,11 +48,13 @@ defineComponent(
   },
   props => {
     const showList = computed(() => {
-      return props.personList?.slice(0, 3)
+      return props.personList?.slice(0, props.maxDisplayNum)
     })
 
     const popperList = computed(() => {
-      return props.showAll ? props.personList : props.personList?.slice(3)
+      return props.showAllCount
+        ? props.personList
+        : props.personList.slice(props.maxDisplayNum)
     })
 
     const handleMoreClick = () => {
