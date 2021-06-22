@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-03-03 17:28:13
  * @LastEditors: 付静
- * @LastEditTime: 2021-06-15 16:00:24
+ * @LastEditTime: 2021-06-22 10:14:43
  * @FilePath: /packages/ok-person-card/hook.ts
  */
 
@@ -53,6 +53,8 @@ export default function (props) {
     email: '',
     sendLark: '',
     sendIcon: '',
+    expand: '',
+    collapse: '',
   })
 
   const textStyle = ref({
@@ -128,6 +130,11 @@ export default function (props) {
   // footer height
   const footerHeight = ref(0)
   const deptBox = ref(null)
+  // 展开收起的文字提示
+  const toggleText = computed(() => {
+    // deptOpen ? '收起' : '展开'
+    return deptOpen.value ? langPack.value.collapse : langPack.value.expand
+  })
 
   // 判断文字是否超过两行， 及单个部门两行和两个部门两行的样式区别
   const isOverTwoLine = () => {
@@ -278,5 +285,6 @@ export default function (props) {
     deptBox,
     blurStyle,
     avatarStyle,
+    toggleText,
   }
 }

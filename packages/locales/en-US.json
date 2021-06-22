@@ -8,7 +8,9 @@
       "wechat": "WeChat Work",
       "ME": "ME",
       "lark": "Lark",
-      "dingtalk": "DingTalk"
+      "dingtalk": "DingTalk",
+      "expand": "Open",
+      "collapse": "Put away"
     }
   }
 }

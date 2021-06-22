@@ -54,6 +54,8 @@ const setLang = function (msgRelationType = 'NONE') {
       title,
     }),
     sendIcon: icon,
+    expand: i18n.$t('control.personCard.expand', '展开'),
+    collapse: i18n.$t('control.personCard.collapse', '收起'),
   }
   return lang
 }

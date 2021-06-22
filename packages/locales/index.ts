@@ -8,7 +8,8 @@ import { OkI18n } from 'ok-i18n'
 import en from './en-US.json'
 import ja from './ja-JP.json'
 
-const locale = window.okuiConfig?.locale || 'zh-CN'
+const locale =
+  window.localStorage.getItem('locale') || window.okuiConfig?.locale || 'zh-CN'
 
 const i18n = new OkI18n({
   locale,

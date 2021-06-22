@@ -53,6 +53,7 @@ defineComponent(
             deptBox,
             blurStyle,
             avatarStyle,
+            toggleText,
           } = usePersonCardHandle(props)
 
           // 点击关闭按钮，关闭弹窗
@@ -100,6 +101,7 @@ defineComponent(
             handleToggleDept,
             blurStyle,
             avatarStyle,
+            toggleText,
           }
         },
         template: `
@@ -175,7 +177,7 @@ defineComponent(
                             <p class="item-content" v-if="!deptText.length"> -- </p>
                             <ul ref="deptBox" class="dept-box" :class="{open: deptOpen, 'two-lines': isTwoDepts}" v-else>
                               <li class="dept-item" v-for="dept in deptText"> {{dept}}</li> 
-                              <li v-if="isShowBtn" class="toggle-btn" @click="handleToggleDept">{{deptOpen ? '收起' : '展开'}}</li>             
+                              <li v-if="isShowBtn" class="toggle-btn" @click="handleToggleDept">{{toggleText}}</li>             
                             </ul>
                         </div>
                         <div class="item-row">
