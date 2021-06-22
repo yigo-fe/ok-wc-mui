@@ -4,6 +4,7 @@ import { computed, createApp } from 'vue'
 import closeIcon from '../assets/images/closed.svg'
 import femaleIcon from '../assets/images/female.svg'
 import maleIcon from '../assets/images/male.svg'
+import { locale } from '../locales'
 import usePersonCardHandle from './hook'
 defineComponent(
   'mok-person-card',
@@ -33,6 +34,9 @@ defineComponent(
       const options = {
         setup() {
           const visible = computed(() => props.visible)
+          const labelClass = computed(() => {
+            return locale === 'en-US' ? 'en' : locale === 'ja-JP' ? 'ja' : ''
+          })
 
           const {
             textStyle,
@@ -102,6 +106,7 @@ defineComponent(
             blurStyle,
             avatarStyle,
             toggleText,
+            labelClass,
           }
         },
         template: `
@@ -173,7 +178,7 @@ defineComponent(
                     >
                       <div class="content-wraper">
                         <div class="item-row">
-                            <span class="item-label">{{langPack.team}}：</span>
+                            <div class="item-label" :class="labelClass">{{langPack.team}}：</div>
                             <p class="item-content" v-if="!deptText.length"> -- </p>
                             <ul ref="deptBox" class="dept-box" :class="{open: deptOpen, 'two-lines': isTwoDepts}" v-else>
                               <li class="dept-item" v-for="dept in deptText"> {{dept}}</li> 
@@ -181,7 +186,7 @@ defineComponent(
                             </ul>
                         </div>
                         <div class="item-row">
-                            <span class="item-label">{{langPack.email}}：</span>
+                            <div class="item-label" :class="labelClass">{{langPack.email}}：</div>
                             <p class="item-content">{{ personInfoCom.email || '--'}}</p>
                         </div>
                       </div>

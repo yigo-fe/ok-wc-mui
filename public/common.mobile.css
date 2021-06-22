@@ -141,6 +141,12 @@ p {
   margin-right: 6px;
   color: #8F959E;
 }
+.mok-personcard-box .item-row > .item-label.en {
+  width: 91px;
+}
+.mok-personcard-box .item-row > .item-label.ja {
+  width: 56px;
+}
 .mok-personcard-box .item-row .item-content {
   display: inline-block;
   color: #1F2329;
