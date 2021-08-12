@@ -30,20 +30,23 @@ ul {
   margin-left: 4px;
   font-size: 14px;
   line-height: 20px;
-  color: #1F2329;
+  color: #1f2329;
 }
 .mok-person-group .more-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #E8EAED;
-  border: 1px solid #FAFAFA;
+  background: #e8eaed;
+  border: 1px solid #fafafa;
   box-sizing: border-box;
   border-radius: 50%;
   margin-left: -11px;
   z-index: 2;
-  color: #1F2329;
+  color: #1f2329;
   font-size: 14px;
+}
+.mok-person-group .more-icon.is-mini {
+  font-size: 12px;
 }
 .mok-person-group .single-user-name {
   margin-left: 6px;

@@ -1,3 +1,4 @@
+import { classMap } from 'lit-html/directives/class-map'
 import { styleMap } from 'lit-html/directives/style-map'
 import { computed, defineComponent, html, PropType } from 'ok-lit'
 
@@ -79,11 +80,35 @@ defineComponent(
         : {}
     })
 
+    const SizeMap = {
+      large: '40px',
+      middle: '32px',
+      small: '24px',
+      mini: '20px',
+    }
+
+    const moreIconWidth = computed(() => {
+      let width = '24px'
+      if (props.width) {
+        width = props.width
+      } else if (props.size) {
+        width = SizeMap[props.size]
+      }
+
+      return width
+    })
+
     const moreIconRender = () => {
       return html`
         <div
-          class="more-icon"
-          style=${styleMap({ width: props.width, height: props.height })}
+          class=${classMap({
+            'more-icon': true,
+            'is-mini': moreIconWidth.value === '20px',
+          })}
+          style=${styleMap({
+            width: moreIconWidth.value,
+            height: moreIconWidth.value,
+          })}
         >
           ${moreCount.value}
         </div>
