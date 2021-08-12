@@ -96,6 +96,7 @@ defineComponent(
           -webkit-tap-highlight-color: transparent;
         }
       </style>
+
       <span ref="ok-person-trigger" class="mok-person-cell">
         <slot>
           <mok-avatar
@@ -104,6 +105,7 @@ defineComponent(
             .size=${props.size}
             .width=${props.width}
             .height=${props.height}
+            .avatarStyle=${props.avatarStyle}
           ></mok-avatar>
         </slot>
       </span>

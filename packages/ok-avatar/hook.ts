@@ -3,7 +3,7 @@
  * @Author: 付静
  * @Date: 2021-03-03 15:31:09
  * @LastEditors: 付静
- * @LastEditTime: 2021-06-16 16:50:08
+ * @LastEditTime: 2021-08-12 15:03:36
  * @FilePath: /packages/ok-avatar/hook.ts
  */
 import { computed, effect, ref } from 'ok-lit'
@@ -110,7 +110,7 @@ export default function (props) {
         hasAvatar.value = true
         avatarStyleAll.value[
           'background'
-        ] = `url(${url}) no-repeat center center / cover`
+        ] = `url(${url}) no-repeat center center / 100%`
       },
       () => {
         handleTextAvatar()
