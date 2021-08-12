@@ -9,7 +9,7 @@ import okPersonGroupCss from './style/ok-person-group.less'
 
 // eslint-disable-next-line no-unused-vars
 
-type SIZE_TYPE = 'large' | 'middle' | 'small' | 'mini'
+type SIZE_TYPE = 'large' | 'medium' | 'small' | 'mini'
 defineComponent(
   'mok-person-group',
   {
@@ -76,13 +76,13 @@ defineComponent(
 
     const avatarStyle = computed(() => {
       return showList.value.length > 1
-        ? { 'box-sizing': 'border-box', border: '1px solid #fff' }
+        ? { 'box-sizing': 'border-box', border: '1px solid #FAFAFA' }
         : {}
     })
 
     const SizeMap = {
       large: '40px',
-      middle: '32px',
+      medium: '32px',
       small: '24px',
       mini: '20px',
     }

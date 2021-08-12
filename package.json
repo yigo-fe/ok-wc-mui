@@ -1,6 +1,6 @@
 {
   "name": "ok-wc-mui",
-  "version": "0.1.15",
+  "version": "0.1.17",
   "types": "dist/types/index.d.ts",
   "main": "dist/ok-wc-ui.cjs.js",
   "module": "dist/ok-wc-ui.esm.js",
@@ -13,7 +13,8 @@
     "postpublish": "node ./cdn-upload.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "cdn-upload": "npm run build && node ./cdn-upload.js"
   },
   "husky": {
     "hooks": {
