@@ -32,9 +32,9 @@ module.exports = merge(webpackBaseConf, {
     port: 8000,
     open: true,
     publicPath: '',
-    host: '172.16.1.53',
+    host: '172.16.1.133',
     proxy: {
-      'http://172.16.1.53:8000/apps/api/v1/private': {
+      'http://172.16.1.133:8000/apps/api/v1/private': {
         target: 'https://test.baiteda.com/',
         headers: {
           Cookie:

@@ -62,7 +62,7 @@ defineComponent(
         const id =
           data.employee_id || data.user_id || data.id || data.employee_number
 
-        id && getLarkInfo(id)
+        id ? getLarkInfo(id) : showCard()
       } else {
         showCard()
       }
