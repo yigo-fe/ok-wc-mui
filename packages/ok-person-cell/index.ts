@@ -31,24 +31,27 @@ defineComponent(
     // 获取lark 及部门信息
     const getLarkInfo = async (id: string) => {
       let result: any = null
-      if (props.propsGetInfoByEmpId) {
-        result = await props.propsGetInfoByEmpId(id)
-      } else {
-        result = await api.default.GetInfoByEmpId({ emp_id: id })
-      }
+      // 外部用户调用接口异常处理，保证可以弹窗
+      try {
+        if (props.propsGetInfoByEmpId) {
+          result = await props.propsGetInfoByEmpId(id)
+        } else {
+          result = await api.default.GetInfoByEmpId({ emp_id: id })
+        }
+      } finally {
+        if (result?.code === '000000') {
+          // 记录打开的是否为自己的卡片。判断依据：没有to_open_id字段则为自己
+          isSelf.value = Object.keys(result.data).indexOf('to_open_id') === -1
 
-      if (result.code === '000000') {
-        // 记录打开的是否为自己的卡片。判断依据：没有to_open_id字段则为自己
-        isSelf.value = Object.keys(result.data).indexOf('to_open_id') === -1
-
-        const fromOpenId = result.data.from_open_id
-        toOpenId.value = result.data.to_open_id
-        isAwaken.value = Boolean(fromOpenId && toOpenId.value)
-        deptList.value = result.data.dept_resp_vo_list
-        statusType.value = result.data.status_type
+          const fromOpenId = result.data.from_open_id
+          toOpenId.value = result.data.to_open_id
+          isAwaken.value = Boolean(fromOpenId && toOpenId.value)
+          deptList.value = result.data.dept_resp_vo_list
+          statusType.value = result.data.status_type
+        }
+        // 打开卡片。在此处打开卡片，避免卡片闪烁的情况
+        showCard()
       }
-      // 打开卡片。在此处打开卡片，避免卡片闪烁的情况
-      showCard()
     }
 
     const initCard = (e: any) => {
