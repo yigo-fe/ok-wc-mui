@@ -24,7 +24,7 @@ ul {
   float: left;
 }
 .mok-person-group .avatar-list + .avatar-list {
-  margin-left: -11px;
+  margin-left: -6px;
 }
 .mok-person-group .more {
   margin-left: 4px;
@@ -40,7 +40,7 @@ ul {
   border: 1px solid #fafafa;
   box-sizing: border-box;
   border-radius: 50%;
-  margin-left: -11px;
+  margin-left: -6px;
   z-index: 2;
   color: #1f2329;
   font-size: 14px;
